@@ -1,0 +1,11 @@
+things to add
+1.golem
+  -carried
+  -solid and unsolid state
+
+2.player
+  -player animations
+
+3.level
+  -tileset
+  -creative puzzle ideas
