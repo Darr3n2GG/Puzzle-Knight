@@ -1,6 +1,8 @@
 things to add
 1.golem
   -carried
+  -throwed
+  -golem view and move
   -solid and unsolid state
 
 2.player
@@ -8,4 +10,5 @@ things to add
 
 3.level
   -tileset
-  -creative puzzle ideas
+  -pressure plates
+  -door
