@@ -15,7 +15,7 @@ func _physics_process(delta):
 		velocity.y += gravity * delta
 
 	if Input.is_action_pressed("reset"):
-		position = Vector2(0, -10)
+		global_position = Vector2(0, -10)
 	
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = jump_vel
@@ -30,7 +30,7 @@ func _physics_process(delta):
 		pass
 		
 	if position.y > 5000:
-		position = Vector2(-554, -10)
+		global_position = Vector2(0, 0)
 		
 	move_and_slide()
 	update_animation()

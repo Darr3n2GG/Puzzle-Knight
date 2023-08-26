@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://vey4qycw1oso"]
+
+[ext_resource type="Script" path="res://Characters/scripts/golem/golemMove.gd" id="1_jvg37"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ycjrq"]
+
+[node name="Golem" type="CharacterBody2D"]
+script = ExtResource("1_jvg37")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ycjrq")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+position = Vector2(0, 1)
+color = Color(0.588235, 0.294118, 0, 1)
+polygon = PackedVector2Array(-10, -11, -10, 9, 10, 9, 10, -11)

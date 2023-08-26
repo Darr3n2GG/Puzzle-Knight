@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://bc1xk1qrcmne1"]
+[gd_scene load_steps=5 format=3 uid="uid://bc1xk1qrcmne1"]
 
-[ext_resource type="PackedScene" uid="uid://bp567g14b47o3" path="res://Characters/scenes/player/player_level.tscn" id="1_8egep"]
+[ext_resource type="PackedScene" uid="uid://bp567g14b47o3" path="res://Characters/scenes/player/player.tscn" id="1_8egep"]
+[ext_resource type="PackedScene" uid="uid://vey4qycw1oso" path="res://Characters/scenes/golem/golem.tscn" id="2_pdniy"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_sdppy"]
 
@@ -9,8 +10,13 @@ size = Vector2(573, 67)
 
 [node name="test" type="Node2D"]
 
-[node name="Player_Level" parent="." instance=ExtResource("1_8egep")]
+[node name="Player" parent="." instance=ExtResource("1_8egep")]
 position = Vector2(0, -15)
+
+[node name="Golem" parent="." instance=ExtResource("2_pdniy")]
+position = Vector2(-38, -107)
+platform_floor_layers = 4294901762
+platform_wall_layers = 1
 
 [node name="floor" type="Node2D" parent="."]
 
