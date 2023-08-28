@@ -10,17 +10,19 @@ size = Vector2(573, 67)
 
 [node name="test" type="Node2D"]
 
-[node name="Player" parent="." instance=ExtResource("1_8egep")]
-position = Vector2(0, -15)
-
 [node name="Golem" parent="." instance=ExtResource("2_pdniy")]
 position = Vector2(-38, -107)
-platform_floor_layers = 4294901762
-platform_wall_layers = 1
+collision_layer = 2
+collision_mask = 2
+platform_floor_layers = 4294967294
+
+[node name="Player" parent="." instance=ExtResource("1_8egep")]
+position = Vector2(0, -15)
 
 [node name="floor" type="Node2D" parent="."]
 
 [node name="Polygon2D" type="StaticBody2D" parent="floor"]
+collision_layer = 3
 physics_material_override = SubResource("PhysicsMaterial_sdppy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="floor/Polygon2D"]
