@@ -14,3 +14,8 @@ shape = SubResource("RectangleShape2D_ycjrq")
 position = Vector2(0, 1)
 color = Color(0.588235, 0.294118, 0, 1)
 polygon = PackedVector2Array(-10, -11, -10, 9, 10, 9, 10, -11)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 1.5
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
