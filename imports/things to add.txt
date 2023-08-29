@@ -1,9 +1,9 @@
 things to add
 1.golem
-  -carried
-  -throwed
+  -carried /
+  -throwed /
   -golem view and move
-  -solid and unsolid state
+  -solid and unsolid state /
 
 2.player
   -player animations
