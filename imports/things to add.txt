@@ -8,7 +8,7 @@ things to add
 2.player
   -player animations
 
-3.level
+3.level - Working on it
   -tileset
   -pressure plates
   -door
