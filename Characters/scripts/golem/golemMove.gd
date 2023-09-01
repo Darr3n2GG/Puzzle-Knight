@@ -5,9 +5,11 @@ extends CharacterBody2D
 @export var throwed = 0 #check if golem is throwed
 @export var throw_vel = -400.0
 @export var state = 0 #golem state 
+
 # 0 -> follow player
 # 1 -> become solid
 # 2 -> carry golem
+
 @export var speed : float = 190.0
 @export var TS = 2.5 #throw speed
 
