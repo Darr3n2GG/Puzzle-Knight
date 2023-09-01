@@ -51,3 +51,6 @@ func update_animation():
 		else:
 			anim.play("idle")
 
+
+
+

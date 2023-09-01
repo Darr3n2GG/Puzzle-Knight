@@ -1,0 +1,55 @@
+[gd_scene load_steps=7 format=3 uid="uid://bc1xk1qrcmne1"]
+
+[ext_resource type="PackedScene" uid="uid://bp567g14b47o3" path="res://Characters/Player/player.tscn" id="1_8egep"]
+[ext_resource type="PackedScene" uid="uid://vey4qycw1oso" path="res://Characters/golem/golem.tscn" id="2_pdniy"]
+[ext_resource type="PackedScene" uid="uid://bghlqie32d02s" path="res://Puzzle Interactables/pressure plate/pressure_plate.tscn" id="3_bqmdb"]
+[ext_resource type="PackedScene" uid="uid://db7y1wj8h4wcq" path="res://Resources/Platform/platform nodes.tscn" id="3_p8qfj"]
+[ext_resource type="PackedScene" uid="uid://dcuhx8lvw2h2c" path="res://Puzzle Interactables/Exit Door/Exit_Door.tscn" id="5_oykru"]
+[ext_resource type="PackedScene" uid="uid://6gagttvchcj3" path="res://UI/ui.tscn" id="6_ei0hk"]
+
+[node name="test" type="Node2D"]
+
+[node name="Golem" parent="." instance=ExtResource("2_pdniy")]
+position = Vector2(-38, -107)
+collision_layer = 2
+collision_mask = 2
+platform_floor_layers = 4294967294
+
+[node name="Player" parent="." instance=ExtResource("1_8egep")]
+position = Vector2(0, -15)
+
+[node name="pressure plate" parent="." instance=ExtResource("3_bqmdb")]
+show_behind_parent = true
+position = Vector2(-185, -64)
+
+[node name="Exit Door" parent="." instance=ExtResource("5_oykru")]
+show_behind_parent = true
+position = Vector2(-270, -103)
+
+[node name="Shape2D2" parent="Exit Door" index="2"]
+color = Color(0, 0, 0, 1)
+
+[node name="platform" type="Node2D" parent="."]
+
+[node name="floor" parent="platform" instance=ExtResource("3_p8qfj")]
+
+[node name="floor2" parent="platform" instance=ExtResource("3_p8qfj")]
+position = Vector2(-195, -62)
+scale = Vector2(0.333454, 0.483429)
+
+[node name="UI" parent="." instance=ExtResource("6_ei0hk")]
+follow_viewport_enabled = true
+
+[node name="Label" parent="UI/Control" index="0"]
+visible = false
+layout_mode = 0
+offset_left = -315.0
+offset_top = -142.0
+offset_right = -229.0
+offset_bottom = -116.0
+
+[connection signal="body_entered" from="pressure plate/Area" to="Exit Door" method="_on_area_body_entered"]
+
+[editable path="pressure plate"]
+[editable path="Exit Door"]
+[editable path="UI"]

@@ -1,11 +1,11 @@
 [gd_scene load_steps=3 format=3 uid="uid://vey4qycw1oso"]
 
-[ext_resource type="Script" path="res://Characters/scripts/golem/golemMove.gd" id="1_jvg37"]
+[ext_resource type="Script" path="res://Characters/golem/golemMove.gd" id="1_gluog"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ycjrq"]
 
 [node name="Golem" type="CharacterBody2D"]
-script = ExtResource("1_jvg37")
+script = ExtResource("1_gluog")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_ycjrq")
