@@ -42,7 +42,6 @@ follow_viewport_enabled = true
 
 [node name="Label" parent="UI/Control" index="0"]
 visible = false
-layout_mode = 0
 offset_left = -315.0
 offset_top = -142.0
 offset_right = -229.0

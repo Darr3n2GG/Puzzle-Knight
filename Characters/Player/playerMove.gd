@@ -1,11 +1,9 @@
 extends CharacterBody2D
 
-@onready var anim = $Animation
-@onready var golem = get_parent().get_node("Golem") 
-@export var speed : float = 200.0
-@export var jump_vel : float = -300.0
-
-
+@onready var anim : Node = $Animation
+@onready var golem : Node = get_node("../Golem") 
+const speed : float = 200.0
+const jump_vel : float = -300.0
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 
@@ -36,20 +34,20 @@ func _physics_process(delta):
 	
 	
 func update_animation():
-		if velocity.y < 0:
-			while not is_on_floor():
-				anim.play("jump_start")
-				if anim.frame == 1:
-					anim.pause()
-				break
-		elif velocity.y > 0:
-			while not is_on_floor():
-				anim.play("jump_finish")
-				break
-		elif Input.is_action_pressed("right") or Input.is_action_pressed("left"):
-			anim.play("run")
-		else:
-			anim.play("idle")
+	if velocity.y < 0:
+		while not is_on_floor():
+			anim.play("jump_start")
+			if anim.frame == 1:
+				anim.pause()
+			break
+	elif velocity.y > 0:
+		while not is_on_floor():
+			anim.play("jump_finish")
+			break
+	elif Input.is_action_pressed("right") or Input.is_action_pressed("left"):
+		anim.play("run")
+	else:
+		anim.play("idle")
 
 
 

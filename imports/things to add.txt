@@ -2,7 +2,7 @@ things to add
 1.golem
   -carried /
   -throwed /
-  -golem view and move
+  -golem view (removed move -> provide better gameplay ex. player has to control the golem by moving itself)
   -solid and unsolid state /
 
 2.player
@@ -10,5 +10,9 @@ things to add
 
 3.level
   -tileset
-  -pressure plates
-  -door
+  -pressure plates 50%
+  -exit door 50%
+  -door for puzzles
+  -laser doors
+  -switch for player or golem
+  -enemies?
