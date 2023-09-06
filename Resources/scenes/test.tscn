@@ -5,15 +5,12 @@
 [ext_resource type="PackedScene" uid="uid://bghlqie32d02s" path="res://Puzzle Interactables/pressure plate/pressure_plate.tscn" id="3_bqmdb"]
 [ext_resource type="PackedScene" uid="uid://db7y1wj8h4wcq" path="res://Resources/Platform/platform nodes.tscn" id="3_p8qfj"]
 [ext_resource type="PackedScene" uid="uid://dcuhx8lvw2h2c" path="res://Puzzle Interactables/Exit Door/Exit_Door.tscn" id="5_oykru"]
-[ext_resource type="PackedScene" uid="uid://6gagttvchcj3" path="res://UI/ui.tscn" id="6_ei0hk"]
+[ext_resource type="PackedScene" uid="uid://6gagttvchcj3" path="res://HUD/HUD.tscn" id="6_ei0hk"]
 
 [node name="test" type="Node2D"]
 
 [node name="Golem" parent="." instance=ExtResource("2_pdniy")]
 position = Vector2(-38, -107)
-collision_layer = 2
-collision_mask = 2
-platform_floor_layers = 4294967294
 
 [node name="Player" parent="." instance=ExtResource("1_8egep")]
 position = Vector2(0, -15)
@@ -37,18 +34,18 @@ color = Color(0, 0, 0, 1)
 position = Vector2(-195, -62)
 scale = Vector2(0.333454, 0.483429)
 
-[node name="UI" parent="." instance=ExtResource("6_ei0hk")]
-follow_viewport_enabled = true
+[node name="HUD" parent="." instance=ExtResource("6_ei0hk")]
 
-[node name="Label" parent="UI/Control" index="0"]
+[node name="Label" parent="HUD/Control" index="0"]
 visible = false
 offset_left = -315.0
-offset_top = -142.0
+offset_top = -139.0
 offset_right = -229.0
-offset_bottom = -116.0
+offset_bottom = -113.0
 
-[connection signal="body_entered" from="pressure plate/Area" to="Exit Door" method="_on_area_body_entered"]
+[connection signal="body_entered" from="pressure plate/Area_pp" to="Exit Door" method="_on_area_pp_body_entered"]
+[connection signal="body_entered" from="Exit Door/Area_Door" to="Exit Door" method="_on_area_door_body_entered"]
 
 [editable path="pressure plate"]
 [editable path="Exit Door"]
-[editable path="UI"]
+[editable path="HUD"]

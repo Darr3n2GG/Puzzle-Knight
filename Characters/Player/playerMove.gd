@@ -14,7 +14,7 @@ func _physics_process(delta):
 	if Input.is_action_pressed("reset"):
 		global_position = Vector2(0, -10)
 	
-	if Input.is_action_just_pressed("jump") and is_on_floor() and golem.throwed == 0:
+	if Input.is_action_just_pressed("jump") and is_on_floor() and golem.throwed == false:
 		velocity.y = jump_vel
 
 	if Input.is_action_pressed("right"):

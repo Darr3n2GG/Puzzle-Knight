@@ -30,11 +30,11 @@ position = Vector2(0, -1)
 scale = Vector2(0.0351225, 0.0296857)
 script = ExtResource("1_n07f1")
 
-[node name="Area" type="Area2D" parent="."]
-collision_layer = 3
-collision_mask = 3
+[node name="Area_pp" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 11
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area_pp"]
 position = Vector2(-0.5, 33.5)
 shape = SubResource("RectangleShape2D_v1ix0")
 
@@ -49,5 +49,5 @@ libraries = {
 "": SubResource("AnimationLibrary_0d8k6")
 }
 
-[connection signal="body_entered" from="Area" to="." method="_on_area_body_entered"]
-[connection signal="body_exited" from="Area" to="." method="_on_area_body_exited"]
+[connection signal="body_entered" from="Area_pp" to="." method="_on_area_body_entered"]
+[connection signal="body_exited" from="Area_pp" to="." method="_on_area_body_exited"]

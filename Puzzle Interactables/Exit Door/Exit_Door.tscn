@@ -10,11 +10,11 @@ position = Vector2(0, -20)
 scale = Vector2(0.0306522, 0.606467)
 script = ExtResource("1_l6fb1")
 
-[node name="Area" type="Area2D" parent="."]
+[node name="Area_Door" type="Area2D" parent="."]
 collision_layer = 3
 collision_mask = 3
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area_Door"]
 position = Vector2(-0.5, 33.5)
 shape = SubResource("RectangleShape2D_v1ix0")
 

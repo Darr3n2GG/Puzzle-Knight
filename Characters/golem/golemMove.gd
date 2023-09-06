@@ -6,8 +6,8 @@ enum GolemStates {FOLLOW_STATE,SOLID_STATE,CARRY_STATE}
 @export var state = GolemStates.FOLLOW_STATE
 const JUMP_VEL : float = -300.0
 const SPEED : float = 200.0
-var carried = 0 #check if golem is JUST carried
-var throwed = 0 #check if golem is throwed
+var carried : bool #check if golem is JUST carried
+var throwed : bool #check if golem is throwed
 var dir : int
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
@@ -27,10 +27,10 @@ func _physics_process(delta):
 		global_position.x += SPEED * dyn_dir * delta
 	elif state == GolemStates.CARRY_STATE:
 		global_position = Vector2(playerpos.x,playerpos.y - 30)
-	if not is_on_floor() and throwed == 1:
+	if not is_on_floor() and throwed == true:
 		global_position.x += SPEED * 1.25 * dir * delta
 	else:	
-		throwed = 0
+		throwed = false
 		dir = 0
 	move_and_slide()
 
@@ -40,13 +40,15 @@ func _input(_event):
 		if Input.is_action_just_pressed("interact golem") and state != GolemStates.CARRY_STATE:
 			timer.start()
 		elif Input.is_action_just_released("interact golem"):
-			if carried == 0:
-				change_state(GolemStates.SOLID_STATE if state ==GolemStates.FOLLOW_STATE else GolemStates.FOLLOW_STATE)
+			if carried == false:
+				change_state(GolemStates.SOLID_STATE if state == GolemStates.FOLLOW_STATE else GolemStates.FOLLOW_STATE)
+			elif carried == true and timer.time_left == 0:
+				change_state(GolemStates.FOLLOW_STATE)
 			timer.stop()
 		elif Input.is_action_just_pressed("jump") and state == GolemStates.CARRY_STATE:
 			change_state(GolemStates.SOLID_STATE)
 			velocity.y = JUMP_VEL
-			throwed = 1
+			throwed = true
 
 func change_state(stated):
 	state = stated
@@ -54,7 +56,7 @@ func change_state(stated):
 	set_collision_layer_value(1 if stated != GolemStates.FOLLOW_STATE else 2,1)
 	set_collision_mask_value(2 if stated != GolemStates.FOLLOW_STATE else 1,0)
 	set_collision_mask_value(1 if stated != GolemStates.FOLLOW_STATE else 2,1)
-	carried = 0 if stated != GolemStates.CARRY_STATE else 1
+	carried = false if stated != GolemStates.CARRY_STATE else true
 
 func _on_timer_timeout():
 	change_state(GolemStates.CARRY_STATE)
