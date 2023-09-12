@@ -10,6 +10,9 @@ extends Node2D
 
 func _on_area_body_entered(_body):
 	anim.play("Move")
+#	var tri = Puzzle.new()
+	
+	
 
 func _on_area_body_exited(_body):
 	anim.play_backwards("Move")
