@@ -1,6 +1,6 @@
 class_name Puzzle
 
-var triggered = false
+var pp: bool
 
-func pp_triggered ():
-	pass
+#func pp_triggered ():
+#	pass
