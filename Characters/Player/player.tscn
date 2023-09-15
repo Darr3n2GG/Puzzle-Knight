@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://bp567g14b47o3"]
+[gd_scene load_steps=35 format=3 uid="uid://bp567g14b47o3"]
 
 [ext_resource type="Script" path="res://Characters/Player/playerMove.gd" id="1_2obrh"]
 [ext_resource type="Texture2D" uid="uid://54q0p41w7weu" path="res://Characters/Player/assets/Dead.png" id="2_gfmay"]
@@ -218,6 +218,8 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_84n3d"]
 size = Vector2(9, 12)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p1joe"]
+
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_2obrh")
 
@@ -234,3 +236,7 @@ shape = SubResource("RectangleShape2D_84n3d")
 [node name="Camera" type="Camera2D" parent="."]
 position = Vector2(0, -9)
 position_smoothing_speed = 10.0
+
+[node name="GolemCollision" type="CollisionShape2D" parent="."]
+position = Vector2(0, -30)
+shape = SubResource("RectangleShape2D_p1joe")

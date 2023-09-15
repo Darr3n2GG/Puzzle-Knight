@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 @onready var player = get_node("../Player")  #get player node
 @onready var timer = $Timer #get timer node
+@onready var colli = $CollisionShape2D
 enum {
 	FOLLOW,
 	SOLID,
@@ -34,7 +35,8 @@ func _physics_process(delta):
 				global_position.x += SPEED * dyn_dir * delta
 		CARRY:
 			global_position = Vector2(playerpos.x,playerpos.y - 30)
-			
+			if Input.is_action_just_pressed("jump") and state == CARRY:
+				change_state(THROW)
 		THROW:
 			if throw_dir == 0:
 				throw_dir = -1 if player.get_child(0).is_flipped_h() else 1
@@ -57,8 +59,6 @@ func _input(_event):
 			elif state == CARRY and timer.time_left == 0:
 				change_state(FOLLOW)
 			timer.stop()
-		elif Input.is_action_just_pressed("jump") and state == CARRY:
-			change_state(THROW)
 
 func change_state(stated):
 	state = stated
@@ -66,10 +66,11 @@ func change_state(stated):
 	set_collision_layer_value(1 if stated != FOLLOW else 2,1)
 	set_collision_mask_value(2 if stated != FOLLOW else 1,0)
 	set_collision_mask_value(1 if stated != FOLLOW else 2,1)
+	colli.disabled = true if stated == CARRY else false
 	if stated == THROW:
 		velocity.y = JUMP_VEL
 
 func _on_timer_timeout():
-	if dist < 50:
+	if dist < 50 and global_position.y - 5 <= player.position.y:
 		change_state(CARRY)
 	

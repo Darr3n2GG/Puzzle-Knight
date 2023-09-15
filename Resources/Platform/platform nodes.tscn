@@ -7,12 +7,12 @@ size = Vector2(573, 67)
 
 [node name="floor" type="Node2D"]
 
-[node name="Polygon2D" type="StaticBody2D" parent="."]
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
 collision_layer = 7
 collision_mask = 0
 physics_material_override = SubResource("PhysicsMaterial_sdppy")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Polygon2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 position = Vector2(-0.5, 33.5)
 shape = SubResource("RectangleShape2D_v1ix0")
 

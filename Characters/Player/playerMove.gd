@@ -1,10 +1,12 @@
 extends CharacterBody2D
 
 @onready var anim : Node = $Animation
+@onready var golemcolli : Node = $GolemCollision
 @onready var golem : Node = get_node("../Golem") 
 const speed : float = 200.0
 const jump_vel : float = -300.0
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+
 
 
 func _physics_process(delta):
@@ -31,6 +33,7 @@ func _physics_process(delta):
 		
 	move_and_slide()
 	update_animation()
+	golem_carry_state_colli()
 	
 	
 func update_animation():
@@ -49,6 +52,7 @@ func update_animation():
 	else:
 		anim.play("idle")
 
-
+func golem_carry_state_colli():
+	golemcolli.disabled = false if golem.state == golem.CARRY else true
 
 
