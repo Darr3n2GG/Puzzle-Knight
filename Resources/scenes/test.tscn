@@ -19,6 +19,9 @@ position = Vector2(0, -15)
 show_behind_parent = true
 position = Vector2(-185, -64)
 
+[node name="CollisionShape2D" parent="pressure plate/Area_pp" index="0"]
+visible = false
+
 [node name="Exit Door" parent="." instance=ExtResource("5_oykru")]
 show_behind_parent = true
 position = Vector2(-270, -103)
