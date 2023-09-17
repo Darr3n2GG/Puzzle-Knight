@@ -1,9 +1,9 @@
 class_name Puzzle
-signal PrP_Tri
+signal Tri(code)
 
 var pp: int #The code of the triggered pressure plate 
 
 
 func pp_triggered ():
-	print ("Pressure plate ", pp, " is triggered")
-	emit_signal("PrP_Tri", pp) #Signal is emited. Should be able to detect it from Open_door
+	print ("Pressure plate ", pp, " is triggered") #Yup, this func works normally
+	emit_signal("Tri", pp) #Seems like class aren't able to emit signal
