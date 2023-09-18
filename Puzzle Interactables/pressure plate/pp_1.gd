@@ -8,9 +8,9 @@ extends Node2D
 #	pass
 
 
-func _on_area_body_entered(_body):
+func _on_area_body_entered(_body): 
 	anim.play("Move")
-	var tri = Puzzle.new()
+	var tri = Puzzle.new()  #Works normally
 	tri.pp = 1
 	tri.pp_triggered()
 

@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://bghlqie32d02s"]
 
-[ext_resource type="Script" path="res://Puzzle Interactables/pressure plate/Move_pp.gd" id="1_n07f1"]
+[ext_resource type="Script" path="res://Puzzle Interactables/pressure plate/pp_1.gd" id="1_6maro"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v1ix0"]
 size = Vector2(573, 67)
@@ -28,7 +28,7 @@ _data = {
 [node name="pressure plate" type="Node2D"]
 position = Vector2(0, -1)
 scale = Vector2(0.0351225, 0.0296857)
-script = ExtResource("1_n07f1")
+script = ExtResource("1_6maro")
 
 [node name="Area_pp" type="Area2D" parent="."]
 collision_layer = 0
