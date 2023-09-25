@@ -2,7 +2,6 @@ extends CharacterBody2D
 
 @onready var player = get_node("../Player")  #get player node
 @onready var timer = $Timer #get timer node
-@onready var colli = $CollisionShape2D
 enum {
 	FOLLOW,
 	SOLID,
@@ -66,7 +65,6 @@ func change_state(stated):
 	set_collision_layer_value(1 if stated != FOLLOW else 2,1)
 	set_collision_mask_value(2 if stated != FOLLOW else 1,0)
 	set_collision_mask_value(1 if stated != FOLLOW else 2,1)
-	colli.disabled = true if stated == CARRY else false
 	if stated == THROW:
 		velocity.y = JUMP_VEL
 

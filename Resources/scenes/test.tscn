@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bc1xk1qrcmne1"]
+[gd_scene load_steps=9 format=3 uid="uid://bc1xk1qrcmne1"]
 
 [ext_resource type="PackedScene" uid="uid://bp567g14b47o3" path="res://Characters/Player/player.tscn" id="1_8egep"]
 [ext_resource type="Script" path="res://Resources/scenes/ClassTest.gd" id="1_iaofc"]
@@ -53,8 +53,8 @@ offset_bottom = -113.0
 position = Vector2(-126, -29)
 target_pos = Vector2(0, 50)
 
-[connection signal="body_entered" from="pressure plate/Area_pp" to="Exit Door" method="_on_area_pp_body_entered"]
 [connection signal="New" from="." to="Exit Door" method="_on_test_new"]
+[connection signal="body_entered" from="pressure plate/Area_pp" to="Exit Door" method="_on_area_pp_body_entered"]
 [connection signal="body_entered" from="Exit Door/Area_Door" to="Exit Door" method="_on_area_door_body_entered"]
 
 [editable path="pressure plate"]
