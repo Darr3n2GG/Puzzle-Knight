@@ -1,6 +1,7 @@
 extends Node2D
 @onready var door = $Shape2D2
 @onready var text = get_parent().get_node("HUD/Control/Label") 
+@onready var trigger = get_node("pressure plate")
 
 
 #func _ready():

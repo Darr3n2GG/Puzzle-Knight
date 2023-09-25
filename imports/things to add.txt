@@ -2,15 +2,16 @@ things to add
 1.golem
   -carried /
   -throwed /
-  -golem view (removed move -> provide better gameplay ex. player has to control the golem by moving itself)
+  -golem view (removed move -> provide better gameplay ex. player has to control the golem by moving itself) What about arrow keys?
   -solid and unsolid state /
 
 2.player
   -player animations
+  -player health? (only if enemy is added)
 
 3.level
-  -tileset
-  -pressure plates 50%
+  -tileset 70%
+  -pressure plates 60%
   -exit door 50%
   -door for puzzles
   -laser doors

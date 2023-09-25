@@ -1,6 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://bc1xk1qrcmne1"]
 
 [ext_resource type="PackedScene" uid="uid://bp567g14b47o3" path="res://Characters/Player/player.tscn" id="1_8egep"]
+[ext_resource type="Script" path="res://Resources/scenes/ClassTest.gd" id="1_iaofc"]
 [ext_resource type="PackedScene" uid="uid://vey4qycw1oso" path="res://Characters/golem/golem.tscn" id="2_pdniy"]
 [ext_resource type="PackedScene" uid="uid://bghlqie32d02s" path="res://Puzzle Interactables/pressure plate/pressure_plate.tscn" id="3_bqmdb"]
 [ext_resource type="PackedScene" uid="uid://db7y1wj8h4wcq" path="res://Resources/Platform/platform nodes.tscn" id="3_p8qfj"]
@@ -9,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://bna4yjr6e4uji" path="res://Puzzle Interactables/Laser/Laser.tscn" id="7_hi87o"]
 
 [node name="test" type="Node2D"]
+script = ExtResource("1_iaofc")
 
 [node name="Golem" parent="." instance=ExtResource("2_pdniy")]
 position = Vector2(-38, -107)
@@ -19,6 +21,9 @@ position = Vector2(0, -15)
 [node name="pressure plate" parent="." instance=ExtResource("3_bqmdb")]
 show_behind_parent = true
 position = Vector2(-185, -64)
+
+[node name="CollisionShape2D" parent="pressure plate/Area_pp" index="0"]
+visible = false
 
 [node name="Exit Door" parent="." instance=ExtResource("5_oykru")]
 show_behind_parent = true
@@ -49,6 +54,7 @@ position = Vector2(-126, -29)
 target_pos = Vector2(0, 50)
 
 [connection signal="body_entered" from="pressure plate/Area_pp" to="Exit Door" method="_on_area_pp_body_entered"]
+[connection signal="New" from="." to="Exit Door" method="_on_test_new"]
 [connection signal="body_entered" from="Exit Door/Area_Door" to="Exit Door" method="_on_area_door_body_entered"]
 
 [editable path="pressure plate"]
