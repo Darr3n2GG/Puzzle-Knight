@@ -71,6 +71,6 @@ func change_state(stated):
 		velocity.y = JUMP_VEL
 
 func _on_timer_timeout():
-	if dist < 50 and global_position.y - 5 <= player.position.y:
+	if dist < 50 and global_position.y - 5 <= player.position.y and player.get_node("GolemArea").has_overlapping_bodies() == false:
 		change_state(CARRY)
 	
