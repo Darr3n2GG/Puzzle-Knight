@@ -246,10 +246,8 @@ position = Vector2(0, -30)
 shape = SubResource("RectangleShape2D_p1joe")
 
 [node name="Health_Component" parent="." instance=ExtResource("7_e7efk")]
-max_health = 10.0
 
-[node name="HitBox_Component" parent="." node_paths=PackedStringArray("health") instance=ExtResource("8_ryyix")]
-health = NodePath("../Health_Component")
+[node name="HitBox_Component" parent="." instance=ExtResource("8_ryyix")]
 
 [node name="HitBox_Collision" type="CollisionShape2D" parent="HitBox_Component"]
 scale = Vector2(0.92402, -2.18362)
